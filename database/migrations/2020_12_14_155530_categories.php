@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Post extends Migration
+class Categories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class Post extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
-            $table->bigIncrements("post_id");
-            $table->string("isim");
-            $table->string("icerik");
-            $table->integer("kategori_id");
-
+        Schema::create('categories', function (Blueprint $table) {
+            $table->bigIncrements('kategori_id');
+            $table->string('cat_isim');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +27,6 @@ class Post extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('categories');
     }
 }

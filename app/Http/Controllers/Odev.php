@@ -11,7 +11,7 @@ class Odev extends Controller
         return DB::table('post')->Join('categories','post.kategori_id','=','categories.kategori_id')->select('post.*', 'post.post_id','categories.cat_isim')->orderBy('post.post_id')->get();
     }
     public function ekleme(Request $request){
-      post::insert([
+      post::query()->create([
          'isim' => $request->isim,
          'icerik'=>$request->icerik,
          'kategori_id'=>$request->kategori_id
@@ -21,7 +21,7 @@ class Odev extends Controller
         $mevcut = post::query()->where("post_id","=","$request->post_id")->first();
         post::query()->where("post_id","=","$request->post_id")->update([
             'isim' => $request->isim ?? $mevcut->isim,
-            'icerik'=>$request->içerik ?? $mevcut->icerik,
+            'icerik'=>$request->icerik ?? $mevcut->icerik,
             'kategori_id'=>$request->kategori_id ?? $mevcut->kategori_id
         ]);
     }

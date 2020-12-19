@@ -9,7 +9,7 @@ class post extends Model
 {
     use HasFactory;
     public $table = "post";
-    public $timestamps=false;
+
     protected $fillable=[
       'isim',
       'icerik',
