@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return 'welcome';
-});
-/*Route::get('/ad','Controller@Ad');
-Route::get('/soyad','Controller@Soyad');
-Route::get('/toplama/{sayi1}/{sayi2}','Controller@Toplama');
-Route::get('/cıkarma/{sayi1}/{sayi2}','Controller@Çıkarma');
-Route::get('/carpma/{sayi1}/{sayi2}','Controller@Çarpma');
-Route::get('/bölme/{sayi1}/{sayi2}','Controller@Bölme');*/
+Route::view('/', 'welcome');
+
+Route::get('/login', 'Deneme_cont@index');
+Route::post('/login', 'Deneme_cont@login');
+
+Route::get('/api/getFruits', 'Deneme_cont@getFruits');
